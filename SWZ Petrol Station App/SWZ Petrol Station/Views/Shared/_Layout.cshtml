@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container" style="max-width: 100%;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -23,25 +23,27 @@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-        <div class="container">
+        <div class="container" style="max-width: 100%; background-color: #25353E">
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Pricing", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Customers", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Invoices", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Car wash", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Loyalty", "Index", "Home")</li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" style="padding-top: 50px">
         @RenderBody()
         <hr />
         <footer>
             <table width="100%">
                 <tr>
                     <td style="width: 30%">&copy; @DateTime.Now.Year - SWF Petrol Station</td>
-                    <td style="width: 40%; text-align: center;">Logo</td>
-                    <td style="width: 30%; text-align: right;">@Html.ActionLink("About", "About", "Home")</td>
+                    <td style="width: 40%; text-align: center;">@Html.ActionLink("About", "About", "Home")</td>
+                    <td style="width: 30%; text-align: right;">@Html.ActionLink("Contact", "Contact", "Home")</td>
                 </tr>
             </table>
             
