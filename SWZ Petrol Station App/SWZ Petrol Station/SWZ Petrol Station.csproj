@@ -160,19 +160,81 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="CLIENTS.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COMPANY.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PRICELISTsController.cs" />
     <Compile Include="Controllers\PricingController.cs" />
+    <Compile Include="EMPLOYEES.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="MONITORING_VIDEO.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PERFORMANCE_MONITORING.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PERSON.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PLACES.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="POSITION_SERVICE.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="POSITION_TRANSACTIONS_LIST.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRICELIST.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRIZES.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RESERVATIONS.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SERVICE.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SERVICES_POSITION.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="SWZ_DatabaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SWZ_DatabaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SWZ_DatabaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SWZ_DatabaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SWZ_DatabaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTIONS.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -232,9 +294,32 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Pricing\Pricing.cshtml" />
     <Content Include="Views\Customers\Customers.cshtml" />
+    <EntityDeploy Include="SWZ_DatabaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SWZ_DatabaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="SWZ_DatabaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SWZ_DatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>SWZ_DatabaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SWZ_DatabaseModel.edmx.diagram">
+      <DependentUpon>SWZ_DatabaseModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="SWZ_DatabaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SWZ_DatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>SWZ_DatabaseModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\PRICELISTs\Create.cshtml" />
+    <Content Include="Views\PRICELISTs\Delete.cshtml" />
+    <Content Include="Views\PRICELISTs\Details.cshtml" />
+    <Content Include="Views\PRICELISTs\Edit.cshtml" />
+    <Content Include="Views\PRICELISTs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Loyalty\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

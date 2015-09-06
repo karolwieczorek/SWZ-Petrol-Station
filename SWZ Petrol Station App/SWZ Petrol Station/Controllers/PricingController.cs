@@ -8,6 +8,7 @@ namespace SWZ_Petrol_Station.Controllers
 {
     public class PricingController : Controller
     {
+        DB_9D7C73_karolwieczorek9Entities1 db = new DB_9D7C73_karolwieczorek9Entities1();
 
         // GET: Pricing
         public ActionResult Index() {
@@ -18,8 +19,8 @@ namespace SWZ_Petrol_Station.Controllers
         public ActionResult Pricing()
         {
             ViewBag.Message = "Your pricing description page.";
-            
-            return View();
+            ViewData["choise"] = db.PRICELIST.FirstOrDefault();
+            return View(db.PRICELIST.FirstOrDefault());
         }
     }
 }

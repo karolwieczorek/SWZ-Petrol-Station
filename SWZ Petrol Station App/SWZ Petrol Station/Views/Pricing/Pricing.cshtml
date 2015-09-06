@@ -1,11 +1,16 @@
-﻿@{
+﻿@*@model PRICELIST*@*
+
+@{
     ViewBag.Title = "Pricing";
+    var myMessage = "Hello world";
+    //var db = Database.Open
+    
 }
 <h2 style="text-align: center">@ViewBag.Title</h2>
 
 
-<h3>Petrol Prices</h3>
-
+<h3>Petrol Prices @((PRICELIST)ViewData["choise"]).PRL_PRICE.ToString()</h3>
+        
 <table>
     <tr>
         <th>Type</th>

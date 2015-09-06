@@ -1,0 +1,51 @@
+﻿@model SWZ_Petrol_Station.PRICELIST
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PRICELIST</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PRL_UNIT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRL_UNIT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRL_PRICE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRL_PRICE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRL_LOYALTY_POINTS_AMOUNT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRL_LOYALTY_POINTS_AMOUNT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SERVICE.SER_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SERVICE.SER_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PRL_PKid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

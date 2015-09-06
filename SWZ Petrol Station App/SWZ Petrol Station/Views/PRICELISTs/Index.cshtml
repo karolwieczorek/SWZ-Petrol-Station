@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SWZ_Petrol_Station.PRICELIST>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Prices of services and goods</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PRL_UNIT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRL_PRICE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRL_LOYALTY_POINTS_AMOUNT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SERVICE.SER_NAME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRL_UNIT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRL_PRICE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRL_LOYALTY_POINTS_AMOUNT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SERVICE.SER_NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PRL_PKid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PRL_PKid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PRL_PKid })
+        </td>
+    </tr>
+}
+
+</table>
