@@ -167,6 +167,7 @@
       <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CLIENTSController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -316,6 +317,12 @@
     <Content Include="Views\PRICELISTs\Details.cshtml" />
     <Content Include="Views\PRICELISTs\Edit.cshtml" />
     <Content Include="Views\PRICELISTs\Index.cshtml" />
+    <Content Include="Views\CLIENTS\Create.cshtml" />
+    <Content Include="Views\CLIENTS\Delete.cshtml" />
+    <Content Include="Views\CLIENTS\Details.cshtml" />
+    <Content Include="Views\CLIENTS\Edit.cshtml" />
+    <Content Include="Views\CLIENTS\Index.cshtml" />
+    <Content Include="Views\CLIENTS\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

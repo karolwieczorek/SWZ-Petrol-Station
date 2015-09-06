@@ -1,0 +1,75 @@
+﻿@model SWZ_Petrol_Station.CLIENTS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CLIENTS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CLI_LOGIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLI_LOGIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLI_PASSWORD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLI_PASSWORD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLI_ACCTYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLI_ACCTYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLI_PAOUMT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLI_PAOUMT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLI_LASTCHANGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLI_LASTCHANGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COMPANY.COM_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COMPANY.COM_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PERSON.PRS_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PERSON.PRS_NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CLI_PKid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

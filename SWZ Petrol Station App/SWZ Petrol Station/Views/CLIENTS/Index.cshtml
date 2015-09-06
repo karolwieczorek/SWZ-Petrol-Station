@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SWZ_Petrol_Station.CLIENTS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CLI_LOGIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLI_PASSWORD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLI_ACCTYPE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLI_PAOUMT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLI_LASTCHANGE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COMPANY.COM_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PERSON.PRS_NAME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLI_LOGIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLI_PASSWORD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLI_ACCTYPE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLI_PAOUMT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLI_LASTCHANGE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COMPANY.COM_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PERSON.PRS_NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CLI_PKid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CLI_PKid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CLI_PKid })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,81 @@
+﻿@model SWZ_Petrol_Station.CLIENTS
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CLIENTS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CLI_LOGIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLI_LOGIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLI_PASSWORD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLI_PASSWORD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLI_ACCTYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLI_ACCTYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLI_PAOUMT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLI_PAOUMT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLI_LASTCHANGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLI_LASTCHANGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COMPANY.COM_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COMPANY.COM_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PERSON.PRS_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PERSON.PRS_NAME)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
