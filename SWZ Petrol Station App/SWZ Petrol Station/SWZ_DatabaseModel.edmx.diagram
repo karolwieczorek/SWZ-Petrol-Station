@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e24e4e964c2e4a50b4e0216855871be4" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.CLIENTS" Width="1.5" PointX="1.5" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.COMPANY" Width="1.5" PointX="1.5" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.EMPLOYEES" Width="1.5" PointX="3.75" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.MONITORING_VIDEO" Width="1.5" PointX="5.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.PERFORMANCE_MONITORING" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.PERSON" Width="1.5" PointX="1.5" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.PLACES" Width="1.5" PointX="1.5" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.POSITION_SERVICE" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.POSITION_TRANSACTIONS_LIST" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.PRICELIST" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.PRIZES" Width="1.5" PointX="7.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.RESERVATIONS" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.SERVICE" Width="1.5" PointX="1.5" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.SERVICES_POSITION" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9D7C73_karolwieczorek9Model.TRANSACTIONS" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_CLIENTSTRANSACTIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_COMPANYCLIENTS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_PERSONCLIENTS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_RESERVATIONSCLIENTS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_PLACESCOMPANY" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_EMPLOYEESPERSON" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_POSITION_SERVICEPERFORMANCE_MONITORING" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_PERSONPLACES" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_POSITION_SERVICESERVICES_POSITION" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_POSITION_TRANSACTIONS_LISTPOSITION_SERVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_RESERVATIONSPOSITION_SERVICE" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_POSITION_TRANSACTIONS_LISTTRANSACTIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_PRICELISTTRANSACTIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_SERVICEPRICELIST" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9D7C73_karolwieczorek9Model.FK_SERVICES_POSITIONSERVICE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

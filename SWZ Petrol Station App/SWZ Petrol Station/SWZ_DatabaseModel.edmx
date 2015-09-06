@@ -1,0 +1,1063 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_9D7C73_karolwieczorek9Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CLIENTS">
+          <Key>
+            <PropertyRef Name="CLI_PKid" />
+          </Key>
+          <Property Name="CLI_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLI_LOGIN" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="CLI_PASSWORD" Type="varchar" MaxLength="45" />
+          <Property Name="CLI_ACCTYPE" Type="int" Nullable="false" />
+          <Property Name="CLI_PAOUMT" Type="int" />
+          <Property Name="CLI_LASTCHANGE" Type="datetime" />
+          <Property Name="COM_PKid" Type="int" />
+          <Property Name="PRS_PKid" Type="int" />
+        </EntityType>
+        <EntityType Name="COMPANY">
+          <Key>
+            <PropertyRef Name="COM_PKid" />
+          </Key>
+          <Property Name="COM_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COM_NAME" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="COM_NIP" Type="bigint" Nullable="false" />
+          <Property Name="COM_REGON" Type="bigint" Nullable="false" />
+          <Property Name="PLA_PKid" Type="int" />
+        </EntityType>
+        <EntityType Name="EMPLOYEES">
+          <Key>
+            <PropertyRef Name="EMP_PKid" />
+          </Key>
+          <Property Name="EMP_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMP_JOB" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="EMP_PERMISSIONS" Type="int" Nullable="false" />
+          <Property Name="EMP_IDNO" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="EMP_PASSWORD" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="PRS_PKid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MONITORING_VIDEO">
+          <Key>
+            <PropertyRef Name="MOV_PKid" />
+          </Key>
+          <Property Name="MOV_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MOV_PATH" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="MOV_DATE" Type="datetime" Nullable="false" />
+          <Property Name="MOV_CAMERANO" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="MOV_FILESIZE" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERFORMANCE_MONITORING">
+          <Key>
+            <PropertyRef Name="PER_PKid" />
+          </Key>
+          <Property Name="PER_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PER_NAME" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="PER_VALUE" Type="float" Nullable="false" />
+          <Property Name="PER_DATE" Type="datetime" Nullable="false" />
+          <Property Name="PER_SENSORNO" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="POS_PKid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERSON">
+          <Key>
+            <PropertyRef Name="PRS_PKid" />
+          </Key>
+          <Property Name="PRS_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRS_NAME" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="PRS_MIDNAME" Type="varchar" MaxLength="45" />
+          <Property Name="PRS_SURNAME" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="PRS_PESEL" Type="bigint" Nullable="false" />
+          <Property Name="PRS_NIP" Type="bigint" />
+          <Property Name="PRS_BIRTHDATE" Type="datetime" Nullable="false" />
+          <Property Name="PLA_PKid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PLACES">
+          <Key>
+            <PropertyRef Name="PLA_PKid" />
+          </Key>
+          <Property Name="PLA_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PLA_CITY" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="PLA_POSTCODE" Type="varchar" MaxLength="45" />
+          <Property Name="PLA_STREET" Type="int" Nullable="false" />
+          <Property Name="PLA_HOUSENO" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="PLA_BUILDNAME" Type="int" />
+          <Property Name="PLA_COUNTRY" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POSITION_SERVICE">
+          <Key>
+            <PropertyRef Name="POS_PKid" />
+          </Key>
+          <Property Name="POS_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="POS_NAME" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="POS_TYPE" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="POS_CAPACITY_UNIT" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="POS_CAPACITY" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POSITION_TRANSACTIONS_LIST">
+          <Key>
+            <PropertyRef Name="PTL_PKID" />
+          </Key>
+          <Property Name="PTL_PKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="POS_PKid" Type="int" Nullable="false" />
+          <Property Name="TRA_PKid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRICELIST">
+          <Key>
+            <PropertyRef Name="PRL_PKid" />
+          </Key>
+          <Property Name="PRL_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRL_UNIT" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="PRL_PRICE" Type="float" Nullable="false" />
+          <Property Name="PRL_LOYALTY_POINTS_AMOUNT" Type="int" Nullable="false" />
+          <Property Name="SER_PKid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRIZES">
+          <Key>
+            <PropertyRef Name="PRI_PKid" />
+          </Key>
+          <Property Name="PRI_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRI_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="PRI_NUMBER_OF_POINTS" Type="float" />
+        </EntityType>
+        <EntityType Name="RESERVATIONS">
+          <Key>
+            <PropertyRef Name="RES_PKid" />
+          </Key>
+          <Property Name="RES_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RES_RESERVATION_DATE" Type="datetime" Nullable="false" />
+          <Property Name="RES_DATE_TERM" Type="datetime" Nullable="false" />
+          <Property Name="POS_PKid" Type="int" Nullable="false" />
+          <Property Name="CLI_PKid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICE">
+          <Key>
+            <PropertyRef Name="SER_PKid" />
+          </Key>
+          <Property Name="SER_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SER_NAME" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICES_POSITION">
+          <Key>
+            <PropertyRef Name="SPO_PKid" />
+          </Key>
+          <Property Name="SPO_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="POS_PKid" Type="int" Nullable="false" />
+          <Property Name="SER_PKid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRANSACTIONS">
+          <Key>
+            <PropertyRef Name="TRA_PKid" />
+          </Key>
+          <Property Name="TRA_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TRA_NAME" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="TRA_DATE" Type="datetime" Nullable="false" />
+          <Property Name="TRA_INVOICED" Type="bit" Nullable="false" />
+          <Property Name="TRA_AMOUNT" Type="int" />
+          <Property Name="TRA_ALL" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PRL_PKid" Type="int" />
+          <Property Name="CLI_PKid" Type="int" />
+        </EntityType>
+        <Association Name="FK_CLIENTSTRANSACTIONS">
+          <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="0..1" />
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTS">
+              <PropertyRef Name="CLI_PKid" />
+            </Principal>
+            <Dependent Role="TRANSACTIONS">
+              <PropertyRef Name="CLI_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPANYCLIENTS">
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="0..1" />
+          <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPANY">
+              <PropertyRef Name="COM_PKid" />
+            </Principal>
+            <Dependent Role="CLIENTS">
+              <PropertyRef Name="COM_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEESPERSON">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="1" />
+          <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PRS_PKid" />
+            </Principal>
+            <Dependent Role="EMPLOYEES">
+              <PropertyRef Name="PRS_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSONCLIENTS">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
+          <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PRS_PKid" />
+            </Principal>
+            <Dependent Role="CLIENTS">
+              <PropertyRef Name="PRS_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSONPLACES">
+          <End Role="PLACES" Type="Self.PLACES" Multiplicity="1" />
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACES">
+              <PropertyRef Name="PLA_PKid" />
+            </Principal>
+            <Dependent Role="PERSON">
+              <PropertyRef Name="PLA_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLACESCOMPANY">
+          <End Role="PLACES" Type="Self.PLACES" Multiplicity="0..1" />
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACES">
+              <PropertyRef Name="PLA_PKid" />
+            </Principal>
+            <Dependent Role="COMPANY">
+              <PropertyRef Name="PLA_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POSITION_SERVICEPERFORMANCE_MONITORING">
+          <End Role="POSITION_SERVICE" Type="Self.POSITION_SERVICE" Multiplicity="1" />
+          <End Role="PERFORMANCE_MONITORING" Type="Self.PERFORMANCE_MONITORING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POSITION_SERVICE">
+              <PropertyRef Name="POS_PKid" />
+            </Principal>
+            <Dependent Role="PERFORMANCE_MONITORING">
+              <PropertyRef Name="POS_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POSITION_SERVICESERVICES_POSITION">
+          <End Role="POSITION_SERVICE" Type="Self.POSITION_SERVICE" Multiplicity="1" />
+          <End Role="SERVICES_POSITION" Type="Self.SERVICES_POSITION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POSITION_SERVICE">
+              <PropertyRef Name="POS_PKid" />
+            </Principal>
+            <Dependent Role="SERVICES_POSITION">
+              <PropertyRef Name="POS_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POSITION_TRANSACTIONS_LISTPOSITION_SERVICE">
+          <End Role="POSITION_SERVICE" Type="Self.POSITION_SERVICE" Multiplicity="1" />
+          <End Role="POSITION_TRANSACTIONS_LIST" Type="Self.POSITION_TRANSACTIONS_LIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POSITION_SERVICE">
+              <PropertyRef Name="POS_PKid" />
+            </Principal>
+            <Dependent Role="POSITION_TRANSACTIONS_LIST">
+              <PropertyRef Name="POS_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POSITION_TRANSACTIONS_LISTTRANSACTIONS">
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTIONS" Multiplicity="1" />
+          <End Role="POSITION_TRANSACTIONS_LIST" Type="Self.POSITION_TRANSACTIONS_LIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSACTIONS">
+              <PropertyRef Name="TRA_PKid" />
+            </Principal>
+            <Dependent Role="POSITION_TRANSACTIONS_LIST">
+              <PropertyRef Name="TRA_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRICELISTTRANSACTIONS">
+          <End Role="PRICELIST" Type="Self.PRICELIST" Multiplicity="0..1" />
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRICELIST">
+              <PropertyRef Name="PRL_PKid" />
+            </Principal>
+            <Dependent Role="TRANSACTIONS">
+              <PropertyRef Name="PRL_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESERVATIONSCLIENTS">
+          <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="1" />
+          <End Role="RESERVATIONS" Type="Self.RESERVATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTS">
+              <PropertyRef Name="CLI_PKid" />
+            </Principal>
+            <Dependent Role="RESERVATIONS">
+              <PropertyRef Name="CLI_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESERVATIONSPOSITION_SERVICE">
+          <End Role="POSITION_SERVICE" Type="Self.POSITION_SERVICE" Multiplicity="1" />
+          <End Role="RESERVATIONS" Type="Self.RESERVATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POSITION_SERVICE">
+              <PropertyRef Name="POS_PKid" />
+            </Principal>
+            <Dependent Role="RESERVATIONS">
+              <PropertyRef Name="POS_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICEPRICELIST">
+          <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="1" />
+          <End Role="PRICELIST" Type="Self.PRICELIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICE">
+              <PropertyRef Name="SER_PKid" />
+            </Principal>
+            <Dependent Role="PRICELIST">
+              <PropertyRef Name="SER_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICES_POSITIONSERVICE">
+          <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="1" />
+          <End Role="SERVICES_POSITION" Type="Self.SERVICES_POSITION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICE">
+              <PropertyRef Name="SER_PKid" />
+            </Principal>
+            <Dependent Role="SERVICES_POSITION">
+              <PropertyRef Name="SER_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_9D7C73_karolwieczorek9ModelStoreContainer">
+          <EntitySet Name="CLIENTS" EntityType="Self.CLIENTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPANY" EntityType="Self.COMPANY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MONITORING_VIDEO" EntityType="Self.MONITORING_VIDEO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERFORMANCE_MONITORING" EntityType="Self.PERFORMANCE_MONITORING" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSON" EntityType="Self.PERSON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PLACES" EntityType="Self.PLACES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POSITION_SERVICE" EntityType="Self.POSITION_SERVICE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POSITION_TRANSACTIONS_LIST" EntityType="Self.POSITION_TRANSACTIONS_LIST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRICELIST" EntityType="Self.PRICELIST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRIZES" EntityType="Self.PRIZES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESERVATIONS" EntityType="Self.RESERVATIONS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICE" EntityType="Self.SERVICE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICES_POSITION" EntityType="Self.SERVICES_POSITION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANSACTIONS" EntityType="Self.TRANSACTIONS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CLIENTSTRANSACTIONS" Association="Self.FK_CLIENTSTRANSACTIONS">
+            <End Role="CLIENTS" EntitySet="CLIENTS" />
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPANYCLIENTS" Association="Self.FK_COMPANYCLIENTS">
+            <End Role="COMPANY" EntitySet="COMPANY" />
+            <End Role="CLIENTS" EntitySet="CLIENTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEESPERSON" Association="Self.FK_EMPLOYEESPERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSONCLIENTS" Association="Self.FK_PERSONCLIENTS">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="CLIENTS" EntitySet="CLIENTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSONPLACES" Association="Self.FK_PERSONPLACES">
+            <End Role="PLACES" EntitySet="PLACES" />
+            <End Role="PERSON" EntitySet="PERSON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLACESCOMPANY" Association="Self.FK_PLACESCOMPANY">
+            <End Role="PLACES" EntitySet="PLACES" />
+            <End Role="COMPANY" EntitySet="COMPANY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POSITION_SERVICEPERFORMANCE_MONITORING" Association="Self.FK_POSITION_SERVICEPERFORMANCE_MONITORING">
+            <End Role="POSITION_SERVICE" EntitySet="POSITION_SERVICE" />
+            <End Role="PERFORMANCE_MONITORING" EntitySet="PERFORMANCE_MONITORING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POSITION_SERVICESERVICES_POSITION" Association="Self.FK_POSITION_SERVICESERVICES_POSITION">
+            <End Role="POSITION_SERVICE" EntitySet="POSITION_SERVICE" />
+            <End Role="SERVICES_POSITION" EntitySet="SERVICES_POSITION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POSITION_TRANSACTIONS_LISTPOSITION_SERVICE" Association="Self.FK_POSITION_TRANSACTIONS_LISTPOSITION_SERVICE">
+            <End Role="POSITION_SERVICE" EntitySet="POSITION_SERVICE" />
+            <End Role="POSITION_TRANSACTIONS_LIST" EntitySet="POSITION_TRANSACTIONS_LIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POSITION_TRANSACTIONS_LISTTRANSACTIONS" Association="Self.FK_POSITION_TRANSACTIONS_LISTTRANSACTIONS">
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+            <End Role="POSITION_TRANSACTIONS_LIST" EntitySet="POSITION_TRANSACTIONS_LIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRICELISTTRANSACTIONS" Association="Self.FK_PRICELISTTRANSACTIONS">
+            <End Role="PRICELIST" EntitySet="PRICELIST" />
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVATIONSCLIENTS" Association="Self.FK_RESERVATIONSCLIENTS">
+            <End Role="CLIENTS" EntitySet="CLIENTS" />
+            <End Role="RESERVATIONS" EntitySet="RESERVATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVATIONSPOSITION_SERVICE" Association="Self.FK_RESERVATIONSPOSITION_SERVICE">
+            <End Role="POSITION_SERVICE" EntitySet="POSITION_SERVICE" />
+            <End Role="RESERVATIONS" EntitySet="RESERVATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICEPRICELIST" Association="Self.FK_SERVICEPRICELIST">
+            <End Role="SERVICE" EntitySet="SERVICE" />
+            <End Role="PRICELIST" EntitySet="PRICELIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICES_POSITIONSERVICE" Association="Self.FK_SERVICES_POSITIONSERVICE">
+            <End Role="SERVICE" EntitySet="SERVICE" />
+            <End Role="SERVICES_POSITION" EntitySet="SERVICES_POSITION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_9D7C73_karolwieczorek9Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CLIENTS">
+          <Key>
+            <PropertyRef Name="CLI_PKid" />
+          </Key>
+          <Property Name="CLI_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLI_LOGIN" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLI_PASSWORD" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CLI_ACCTYPE" Type="Int32" Nullable="false" />
+          <Property Name="CLI_PAOUMT" Type="Int32" />
+          <Property Name="CLI_LASTCHANGE" Type="DateTime" Precision="3" />
+          <Property Name="COM_PKid" Type="Int32" />
+          <Property Name="PRS_PKid" Type="Int32" />
+          <NavigationProperty Name="TRANSACTIONS" Relationship="Self.FK_CLIENTSTRANSACTIONS" FromRole="CLIENTS" ToRole="TRANSACTIONS" />
+          <NavigationProperty Name="COMPANY" Relationship="Self.FK_COMPANYCLIENTS" FromRole="CLIENTS" ToRole="COMPANY" />
+          <NavigationProperty Name="PERSON" Relationship="Self.FK_PERSONCLIENTS" FromRole="CLIENTS" ToRole="PERSON" />
+          <NavigationProperty Name="RESERVATIONS" Relationship="Self.FK_RESERVATIONSCLIENTS" FromRole="CLIENTS" ToRole="RESERVATIONS" />
+        </EntityType>
+        <EntityType Name="COMPANY">
+          <Key>
+            <PropertyRef Name="COM_PKid" />
+          </Key>
+          <Property Name="COM_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COM_NAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COM_NIP" Type="Int64" Nullable="false" />
+          <Property Name="COM_REGON" Type="Int64" Nullable="false" />
+          <Property Name="PLA_PKid" Type="Int32" />
+          <NavigationProperty Name="CLIENTS" Relationship="Self.FK_COMPANYCLIENTS" FromRole="COMPANY" ToRole="CLIENTS" />
+          <NavigationProperty Name="PLACES" Relationship="Self.FK_PLACESCOMPANY" FromRole="COMPANY" ToRole="PLACES" />
+        </EntityType>
+        <EntityType Name="EMPLOYEES">
+          <Key>
+            <PropertyRef Name="EMP_PKid" />
+          </Key>
+          <Property Name="EMP_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMP_JOB" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMP_PERMISSIONS" Type="Int32" Nullable="false" />
+          <Property Name="EMP_IDNO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMP_PASSWORD" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRS_PKid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PERSON" Relationship="Self.FK_EMPLOYEESPERSON" FromRole="EMPLOYEES" ToRole="PERSON" />
+        </EntityType>
+        <EntityType Name="MONITORING_VIDEO">
+          <Key>
+            <PropertyRef Name="MOV_PKid" />
+          </Key>
+          <Property Name="MOV_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MOV_PATH" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MOV_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MOV_CAMERANO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MOV_FILESIZE" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERFORMANCE_MONITORING">
+          <Key>
+            <PropertyRef Name="PER_PKid" />
+          </Key>
+          <Property Name="PER_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PER_NAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PER_VALUE" Type="Double" Nullable="false" />
+          <Property Name="PER_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PER_SENSORNO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="POS_PKid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="POSITION_SERVICE" Relationship="Self.FK_POSITION_SERVICEPERFORMANCE_MONITORING" FromRole="PERFORMANCE_MONITORING" ToRole="POSITION_SERVICE" />
+        </EntityType>
+        <EntityType Name="PERSON">
+          <Key>
+            <PropertyRef Name="PRS_PKid" />
+          </Key>
+          <Property Name="PRS_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRS_NAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRS_MIDNAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="PRS_SURNAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRS_PESEL" Type="Int64" Nullable="false" />
+          <Property Name="PRS_NIP" Type="Int64" />
+          <Property Name="PRS_BIRTHDATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PLA_PKid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CLIENTS" Relationship="Self.FK_PERSONCLIENTS" FromRole="PERSON" ToRole="CLIENTS" />
+          <NavigationProperty Name="EMPLOYEES" Relationship="Self.FK_EMPLOYEESPERSON" FromRole="PERSON" ToRole="EMPLOYEES" />
+          <NavigationProperty Name="PLACES" Relationship="Self.FK_PERSONPLACES" FromRole="PERSON" ToRole="PLACES" />
+        </EntityType>
+        <EntityType Name="PLACES">
+          <Key>
+            <PropertyRef Name="PLA_PKid" />
+          </Key>
+          <Property Name="PLA_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PLA_CITY" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PLA_POSTCODE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="PLA_STREET" Type="Int32" Nullable="false" />
+          <Property Name="PLA_HOUSENO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PLA_BUILDNAME" Type="Int32" />
+          <Property Name="PLA_COUNTRY" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="COMPANY" Relationship="Self.FK_PLACESCOMPANY" FromRole="PLACES" ToRole="COMPANY" />
+          <NavigationProperty Name="PERSON" Relationship="Self.FK_PERSONPLACES" FromRole="PLACES" ToRole="PERSON" />
+        </EntityType>
+        <EntityType Name="POSITION_SERVICE">
+          <Key>
+            <PropertyRef Name="POS_PKid" />
+          </Key>
+          <Property Name="POS_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="POS_NAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="POS_TYPE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="POS_CAPACITY_UNIT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="POS_CAPACITY" Type="Double" Nullable="false" />
+          <NavigationProperty Name="PERFORMANCE_MONITORING" Relationship="Self.FK_POSITION_SERVICEPERFORMANCE_MONITORING" FromRole="POSITION_SERVICE" ToRole="PERFORMANCE_MONITORING" />
+          <NavigationProperty Name="SERVICES_POSITION" Relationship="Self.FK_POSITION_SERVICESERVICES_POSITION" FromRole="POSITION_SERVICE" ToRole="SERVICES_POSITION" />
+          <NavigationProperty Name="POSITION_TRANSACTIONS_LIST" Relationship="Self.FK_POSITION_TRANSACTIONS_LISTPOSITION_SERVICE" FromRole="POSITION_SERVICE" ToRole="POSITION_TRANSACTIONS_LIST" />
+          <NavigationProperty Name="RESERVATIONS" Relationship="Self.FK_RESERVATIONSPOSITION_SERVICE" FromRole="POSITION_SERVICE" ToRole="RESERVATIONS" />
+        </EntityType>
+        <EntityType Name="POSITION_TRANSACTIONS_LIST">
+          <Key>
+            <PropertyRef Name="PTL_PKID" />
+          </Key>
+          <Property Name="PTL_PKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="POS_PKid" Type="Int32" Nullable="false" />
+          <Property Name="TRA_PKid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="POSITION_SERVICE" Relationship="Self.FK_POSITION_TRANSACTIONS_LISTPOSITION_SERVICE" FromRole="POSITION_TRANSACTIONS_LIST" ToRole="POSITION_SERVICE" />
+          <NavigationProperty Name="TRANSACTIONS" Relationship="Self.FK_POSITION_TRANSACTIONS_LISTTRANSACTIONS" FromRole="POSITION_TRANSACTIONS_LIST" ToRole="TRANSACTIONS" />
+        </EntityType>
+        <EntityType Name="PRICELIST">
+          <Key>
+            <PropertyRef Name="PRL_PKid" />
+          </Key>
+          <Property Name="PRL_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRL_UNIT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRL_PRICE" Type="Double" Nullable="false" />
+          <Property Name="PRL_LOYALTY_POINTS_AMOUNT" Type="Int32" Nullable="false" />
+          <Property Name="SER_PKid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TRANSACTIONS" Relationship="Self.FK_PRICELISTTRANSACTIONS" FromRole="PRICELIST" ToRole="TRANSACTIONS" />
+          <NavigationProperty Name="SERVICE" Relationship="Self.FK_SERVICEPRICELIST" FromRole="PRICELIST" ToRole="SERVICE" />
+        </EntityType>
+        <EntityType Name="PRIZES">
+          <Key>
+            <PropertyRef Name="PRI_PKid" />
+          </Key>
+          <Property Name="PRI_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRI_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRI_NUMBER_OF_POINTS" Type="Double" />
+        </EntityType>
+        <EntityType Name="RESERVATIONS">
+          <Key>
+            <PropertyRef Name="RES_PKid" />
+          </Key>
+          <Property Name="RES_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RES_RESERVATION_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RES_DATE_TERM" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="POS_PKid" Type="Int32" Nullable="false" />
+          <Property Name="CLI_PKid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CLIENTS" Relationship="Self.FK_RESERVATIONSCLIENTS" FromRole="RESERVATIONS" ToRole="CLIENTS" />
+          <NavigationProperty Name="POSITION_SERVICE" Relationship="Self.FK_RESERVATIONSPOSITION_SERVICE" FromRole="RESERVATIONS" ToRole="POSITION_SERVICE" />
+        </EntityType>
+        <EntityType Name="SERVICE">
+          <Key>
+            <PropertyRef Name="SER_PKid" />
+          </Key>
+          <Property Name="SER_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SER_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PRICELIST" Relationship="Self.FK_SERVICEPRICELIST" FromRole="SERVICE" ToRole="PRICELIST" />
+          <NavigationProperty Name="SERVICES_POSITION" Relationship="Self.FK_SERVICES_POSITIONSERVICE" FromRole="SERVICE" ToRole="SERVICES_POSITION" />
+        </EntityType>
+        <EntityType Name="SERVICES_POSITION">
+          <Key>
+            <PropertyRef Name="SPO_PKid" />
+          </Key>
+          <Property Name="SPO_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="POS_PKid" Type="Int32" Nullable="false" />
+          <Property Name="SER_PKid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="POSITION_SERVICE" Relationship="Self.FK_POSITION_SERVICESERVICES_POSITION" FromRole="SERVICES_POSITION" ToRole="POSITION_SERVICE" />
+          <NavigationProperty Name="SERVICE" Relationship="Self.FK_SERVICES_POSITIONSERVICE" FromRole="SERVICES_POSITION" ToRole="SERVICE" />
+        </EntityType>
+        <EntityType Name="TRANSACTIONS">
+          <Key>
+            <PropertyRef Name="TRA_PKid" />
+          </Key>
+          <Property Name="TRA_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TRA_NAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRA_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TRA_INVOICED" Type="Boolean" Nullable="false" />
+          <Property Name="TRA_AMOUNT" Type="Int32" />
+          <Property Name="TRA_ALL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PRL_PKid" Type="Int32" />
+          <Property Name="CLI_PKid" Type="Int32" />
+          <NavigationProperty Name="CLIENTS" Relationship="Self.FK_CLIENTSTRANSACTIONS" FromRole="TRANSACTIONS" ToRole="CLIENTS" />
+          <NavigationProperty Name="POSITION_TRANSACTIONS_LIST" Relationship="Self.FK_POSITION_TRANSACTIONS_LISTTRANSACTIONS" FromRole="TRANSACTIONS" ToRole="POSITION_TRANSACTIONS_LIST" />
+          <NavigationProperty Name="PRICELIST" Relationship="Self.FK_PRICELISTTRANSACTIONS" FromRole="TRANSACTIONS" ToRole="PRICELIST" />
+        </EntityType>
+        <Association Name="FK_CLIENTSTRANSACTIONS">
+          <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="0..1" />
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTS">
+              <PropertyRef Name="CLI_PKid" />
+            </Principal>
+            <Dependent Role="TRANSACTIONS">
+              <PropertyRef Name="CLI_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPANYCLIENTS">
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="0..1" />
+          <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPANY">
+              <PropertyRef Name="COM_PKid" />
+            </Principal>
+            <Dependent Role="CLIENTS">
+              <PropertyRef Name="COM_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSONCLIENTS">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
+          <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PRS_PKid" />
+            </Principal>
+            <Dependent Role="CLIENTS">
+              <PropertyRef Name="PRS_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESERVATIONSCLIENTS">
+          <End Role="CLIENTS" Type="Self.CLIENTS" Multiplicity="1" />
+          <End Role="RESERVATIONS" Type="Self.RESERVATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTS">
+              <PropertyRef Name="CLI_PKid" />
+            </Principal>
+            <Dependent Role="RESERVATIONS">
+              <PropertyRef Name="CLI_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PLACESCOMPANY">
+          <End Role="PLACES" Type="Self.PLACES" Multiplicity="0..1" />
+          <End Role="COMPANY" Type="Self.COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACES">
+              <PropertyRef Name="PLA_PKid" />
+            </Principal>
+            <Dependent Role="COMPANY">
+              <PropertyRef Name="PLA_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEESPERSON">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="1" />
+          <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PRS_PKid" />
+            </Principal>
+            <Dependent Role="EMPLOYEES">
+              <PropertyRef Name="PRS_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POSITION_SERVICEPERFORMANCE_MONITORING">
+          <End Role="POSITION_SERVICE" Type="Self.POSITION_SERVICE" Multiplicity="1" />
+          <End Role="PERFORMANCE_MONITORING" Type="Self.PERFORMANCE_MONITORING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POSITION_SERVICE">
+              <PropertyRef Name="POS_PKid" />
+            </Principal>
+            <Dependent Role="PERFORMANCE_MONITORING">
+              <PropertyRef Name="POS_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSONPLACES">
+          <End Role="PLACES" Type="Self.PLACES" Multiplicity="1" />
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACES">
+              <PropertyRef Name="PLA_PKid" />
+            </Principal>
+            <Dependent Role="PERSON">
+              <PropertyRef Name="PLA_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POSITION_SERVICESERVICES_POSITION">
+          <End Role="POSITION_SERVICE" Type="Self.POSITION_SERVICE" Multiplicity="1" />
+          <End Role="SERVICES_POSITION" Type="Self.SERVICES_POSITION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POSITION_SERVICE">
+              <PropertyRef Name="POS_PKid" />
+            </Principal>
+            <Dependent Role="SERVICES_POSITION">
+              <PropertyRef Name="POS_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POSITION_TRANSACTIONS_LISTPOSITION_SERVICE">
+          <End Role="POSITION_SERVICE" Type="Self.POSITION_SERVICE" Multiplicity="1" />
+          <End Role="POSITION_TRANSACTIONS_LIST" Type="Self.POSITION_TRANSACTIONS_LIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POSITION_SERVICE">
+              <PropertyRef Name="POS_PKid" />
+            </Principal>
+            <Dependent Role="POSITION_TRANSACTIONS_LIST">
+              <PropertyRef Name="POS_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESERVATIONSPOSITION_SERVICE">
+          <End Role="POSITION_SERVICE" Type="Self.POSITION_SERVICE" Multiplicity="1" />
+          <End Role="RESERVATIONS" Type="Self.RESERVATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POSITION_SERVICE">
+              <PropertyRef Name="POS_PKid" />
+            </Principal>
+            <Dependent Role="RESERVATIONS">
+              <PropertyRef Name="POS_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POSITION_TRANSACTIONS_LISTTRANSACTIONS">
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTIONS" Multiplicity="1" />
+          <End Role="POSITION_TRANSACTIONS_LIST" Type="Self.POSITION_TRANSACTIONS_LIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSACTIONS">
+              <PropertyRef Name="TRA_PKid" />
+            </Principal>
+            <Dependent Role="POSITION_TRANSACTIONS_LIST">
+              <PropertyRef Name="TRA_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRICELISTTRANSACTIONS">
+          <End Role="PRICELIST" Type="Self.PRICELIST" Multiplicity="0..1" />
+          <End Role="TRANSACTIONS" Type="Self.TRANSACTIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRICELIST">
+              <PropertyRef Name="PRL_PKid" />
+            </Principal>
+            <Dependent Role="TRANSACTIONS">
+              <PropertyRef Name="PRL_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICEPRICELIST">
+          <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="1" />
+          <End Role="PRICELIST" Type="Self.PRICELIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICE">
+              <PropertyRef Name="SER_PKid" />
+            </Principal>
+            <Dependent Role="PRICELIST">
+              <PropertyRef Name="SER_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SERVICES_POSITIONSERVICE">
+          <End Role="SERVICE" Type="Self.SERVICE" Multiplicity="1" />
+          <End Role="SERVICES_POSITION" Type="Self.SERVICES_POSITION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICE">
+              <PropertyRef Name="SER_PKid" />
+            </Principal>
+            <Dependent Role="SERVICES_POSITION">
+              <PropertyRef Name="SER_PKid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_9D7C73_karolwieczorek9Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLIENTS" EntityType="Self.CLIENTS" />
+          <EntitySet Name="COMPANY" EntityType="Self.COMPANY" />
+          <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" />
+          <EntitySet Name="MONITORING_VIDEO" EntityType="Self.MONITORING_VIDEO" />
+          <EntitySet Name="PERFORMANCE_MONITORING" EntityType="Self.PERFORMANCE_MONITORING" />
+          <EntitySet Name="PERSON" EntityType="Self.PERSON" />
+          <EntitySet Name="PLACES" EntityType="Self.PLACES" />
+          <EntitySet Name="POSITION_SERVICE" EntityType="Self.POSITION_SERVICE" />
+          <EntitySet Name="POSITION_TRANSACTIONS_LIST" EntityType="Self.POSITION_TRANSACTIONS_LIST" />
+          <EntitySet Name="PRICELIST" EntityType="Self.PRICELIST" />
+          <EntitySet Name="PRIZES" EntityType="Self.PRIZES" />
+          <EntitySet Name="RESERVATIONS" EntityType="Self.RESERVATIONS" />
+          <EntitySet Name="SERVICE" EntityType="Self.SERVICE" />
+          <EntitySet Name="SERVICES_POSITION" EntityType="Self.SERVICES_POSITION" />
+          <EntitySet Name="TRANSACTIONS" EntityType="Self.TRANSACTIONS" />
+          <AssociationSet Name="FK_CLIENTSTRANSACTIONS" Association="Self.FK_CLIENTSTRANSACTIONS">
+            <End Role="CLIENTS" EntitySet="CLIENTS" />
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPANYCLIENTS" Association="Self.FK_COMPANYCLIENTS">
+            <End Role="COMPANY" EntitySet="COMPANY" />
+            <End Role="CLIENTS" EntitySet="CLIENTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSONCLIENTS" Association="Self.FK_PERSONCLIENTS">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="CLIENTS" EntitySet="CLIENTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVATIONSCLIENTS" Association="Self.FK_RESERVATIONSCLIENTS">
+            <End Role="CLIENTS" EntitySet="CLIENTS" />
+            <End Role="RESERVATIONS" EntitySet="RESERVATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PLACESCOMPANY" Association="Self.FK_PLACESCOMPANY">
+            <End Role="PLACES" EntitySet="PLACES" />
+            <End Role="COMPANY" EntitySet="COMPANY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEESPERSON" Association="Self.FK_EMPLOYEESPERSON">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POSITION_SERVICEPERFORMANCE_MONITORING" Association="Self.FK_POSITION_SERVICEPERFORMANCE_MONITORING">
+            <End Role="POSITION_SERVICE" EntitySet="POSITION_SERVICE" />
+            <End Role="PERFORMANCE_MONITORING" EntitySet="PERFORMANCE_MONITORING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSONPLACES" Association="Self.FK_PERSONPLACES">
+            <End Role="PLACES" EntitySet="PLACES" />
+            <End Role="PERSON" EntitySet="PERSON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POSITION_SERVICESERVICES_POSITION" Association="Self.FK_POSITION_SERVICESERVICES_POSITION">
+            <End Role="POSITION_SERVICE" EntitySet="POSITION_SERVICE" />
+            <End Role="SERVICES_POSITION" EntitySet="SERVICES_POSITION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POSITION_TRANSACTIONS_LISTPOSITION_SERVICE" Association="Self.FK_POSITION_TRANSACTIONS_LISTPOSITION_SERVICE">
+            <End Role="POSITION_SERVICE" EntitySet="POSITION_SERVICE" />
+            <End Role="POSITION_TRANSACTIONS_LIST" EntitySet="POSITION_TRANSACTIONS_LIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVATIONSPOSITION_SERVICE" Association="Self.FK_RESERVATIONSPOSITION_SERVICE">
+            <End Role="POSITION_SERVICE" EntitySet="POSITION_SERVICE" />
+            <End Role="RESERVATIONS" EntitySet="RESERVATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POSITION_TRANSACTIONS_LISTTRANSACTIONS" Association="Self.FK_POSITION_TRANSACTIONS_LISTTRANSACTIONS">
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+            <End Role="POSITION_TRANSACTIONS_LIST" EntitySet="POSITION_TRANSACTIONS_LIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRICELISTTRANSACTIONS" Association="Self.FK_PRICELISTTRANSACTIONS">
+            <End Role="PRICELIST" EntitySet="PRICELIST" />
+            <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICEPRICELIST" Association="Self.FK_SERVICEPRICELIST">
+            <End Role="SERVICE" EntitySet="SERVICE" />
+            <End Role="PRICELIST" EntitySet="PRICELIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SERVICES_POSITIONSERVICE" Association="Self.FK_SERVICES_POSITIONSERVICE">
+            <End Role="SERVICE" EntitySet="SERVICE" />
+            <End Role="SERVICES_POSITION" EntitySet="SERVICES_POSITION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_9D7C73_karolwieczorek9ModelStoreContainer" CdmEntityContainer="DB_9D7C73_karolwieczorek9Entities1">
+          <EntitySetMapping Name="CLIENTS">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.CLIENTS">
+              <MappingFragment StoreEntitySet="CLIENTS">
+                <ScalarProperty Name="CLI_PKid" ColumnName="CLI_PKid" />
+                <ScalarProperty Name="CLI_LOGIN" ColumnName="CLI_LOGIN" />
+                <ScalarProperty Name="CLI_PASSWORD" ColumnName="CLI_PASSWORD" />
+                <ScalarProperty Name="CLI_ACCTYPE" ColumnName="CLI_ACCTYPE" />
+                <ScalarProperty Name="CLI_PAOUMT" ColumnName="CLI_PAOUMT" />
+                <ScalarProperty Name="CLI_LASTCHANGE" ColumnName="CLI_LASTCHANGE" />
+                <ScalarProperty Name="COM_PKid" ColumnName="COM_PKid" />
+                <ScalarProperty Name="PRS_PKid" ColumnName="PRS_PKid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPANY">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.COMPANY">
+              <MappingFragment StoreEntitySet="COMPANY">
+                <ScalarProperty Name="COM_PKid" ColumnName="COM_PKid" />
+                <ScalarProperty Name="COM_NAME" ColumnName="COM_NAME" />
+                <ScalarProperty Name="COM_NIP" ColumnName="COM_NIP" />
+                <ScalarProperty Name="COM_REGON" ColumnName="COM_REGON" />
+                <ScalarProperty Name="PLA_PKid" ColumnName="PLA_PKid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEES">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.EMPLOYEES">
+              <MappingFragment StoreEntitySet="EMPLOYEES">
+                <ScalarProperty Name="EMP_PKid" ColumnName="EMP_PKid" />
+                <ScalarProperty Name="EMP_JOB" ColumnName="EMP_JOB" />
+                <ScalarProperty Name="EMP_PERMISSIONS" ColumnName="EMP_PERMISSIONS" />
+                <ScalarProperty Name="EMP_IDNO" ColumnName="EMP_IDNO" />
+                <ScalarProperty Name="EMP_PASSWORD" ColumnName="EMP_PASSWORD" />
+                <ScalarProperty Name="PRS_PKid" ColumnName="PRS_PKid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MONITORING_VIDEO">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.MONITORING_VIDEO">
+              <MappingFragment StoreEntitySet="MONITORING_VIDEO">
+                <ScalarProperty Name="MOV_PKid" ColumnName="MOV_PKid" />
+                <ScalarProperty Name="MOV_PATH" ColumnName="MOV_PATH" />
+                <ScalarProperty Name="MOV_DATE" ColumnName="MOV_DATE" />
+                <ScalarProperty Name="MOV_CAMERANO" ColumnName="MOV_CAMERANO" />
+                <ScalarProperty Name="MOV_FILESIZE" ColumnName="MOV_FILESIZE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERFORMANCE_MONITORING">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.PERFORMANCE_MONITORING">
+              <MappingFragment StoreEntitySet="PERFORMANCE_MONITORING">
+                <ScalarProperty Name="PER_PKid" ColumnName="PER_PKid" />
+                <ScalarProperty Name="PER_NAME" ColumnName="PER_NAME" />
+                <ScalarProperty Name="PER_VALUE" ColumnName="PER_VALUE" />
+                <ScalarProperty Name="PER_DATE" ColumnName="PER_DATE" />
+                <ScalarProperty Name="PER_SENSORNO" ColumnName="PER_SENSORNO" />
+                <ScalarProperty Name="POS_PKid" ColumnName="POS_PKid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSON">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.PERSON">
+              <MappingFragment StoreEntitySet="PERSON">
+                <ScalarProperty Name="PRS_PKid" ColumnName="PRS_PKid" />
+                <ScalarProperty Name="PRS_NAME" ColumnName="PRS_NAME" />
+                <ScalarProperty Name="PRS_MIDNAME" ColumnName="PRS_MIDNAME" />
+                <ScalarProperty Name="PRS_SURNAME" ColumnName="PRS_SURNAME" />
+                <ScalarProperty Name="PRS_PESEL" ColumnName="PRS_PESEL" />
+                <ScalarProperty Name="PRS_NIP" ColumnName="PRS_NIP" />
+                <ScalarProperty Name="PRS_BIRTHDATE" ColumnName="PRS_BIRTHDATE" />
+                <ScalarProperty Name="PLA_PKid" ColumnName="PLA_PKid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PLACES">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.PLACES">
+              <MappingFragment StoreEntitySet="PLACES">
+                <ScalarProperty Name="PLA_PKid" ColumnName="PLA_PKid" />
+                <ScalarProperty Name="PLA_CITY" ColumnName="PLA_CITY" />
+                <ScalarProperty Name="PLA_POSTCODE" ColumnName="PLA_POSTCODE" />
+                <ScalarProperty Name="PLA_STREET" ColumnName="PLA_STREET" />
+                <ScalarProperty Name="PLA_HOUSENO" ColumnName="PLA_HOUSENO" />
+                <ScalarProperty Name="PLA_BUILDNAME" ColumnName="PLA_BUILDNAME" />
+                <ScalarProperty Name="PLA_COUNTRY" ColumnName="PLA_COUNTRY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POSITION_SERVICE">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.POSITION_SERVICE">
+              <MappingFragment StoreEntitySet="POSITION_SERVICE">
+                <ScalarProperty Name="POS_PKid" ColumnName="POS_PKid" />
+                <ScalarProperty Name="POS_NAME" ColumnName="POS_NAME" />
+                <ScalarProperty Name="POS_TYPE" ColumnName="POS_TYPE" />
+                <ScalarProperty Name="POS_CAPACITY_UNIT" ColumnName="POS_CAPACITY_UNIT" />
+                <ScalarProperty Name="POS_CAPACITY" ColumnName="POS_CAPACITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POSITION_TRANSACTIONS_LIST">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.POSITION_TRANSACTIONS_LIST">
+              <MappingFragment StoreEntitySet="POSITION_TRANSACTIONS_LIST">
+                <ScalarProperty Name="PTL_PKID" ColumnName="PTL_PKID" />
+                <ScalarProperty Name="POS_PKid" ColumnName="POS_PKid" />
+                <ScalarProperty Name="TRA_PKid" ColumnName="TRA_PKid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRICELIST">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.PRICELIST">
+              <MappingFragment StoreEntitySet="PRICELIST">
+                <ScalarProperty Name="PRL_PKid" ColumnName="PRL_PKid" />
+                <ScalarProperty Name="PRL_UNIT" ColumnName="PRL_UNIT" />
+                <ScalarProperty Name="PRL_PRICE" ColumnName="PRL_PRICE" />
+                <ScalarProperty Name="PRL_LOYALTY_POINTS_AMOUNT" ColumnName="PRL_LOYALTY_POINTS_AMOUNT" />
+                <ScalarProperty Name="SER_PKid" ColumnName="SER_PKid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRIZES">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.PRIZES">
+              <MappingFragment StoreEntitySet="PRIZES">
+                <ScalarProperty Name="PRI_PKid" ColumnName="PRI_PKid" />
+                <ScalarProperty Name="PRI_NAME" ColumnName="PRI_NAME" />
+                <ScalarProperty Name="PRI_NUMBER_OF_POINTS" ColumnName="PRI_NUMBER_OF_POINTS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESERVATIONS">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.RESERVATIONS">
+              <MappingFragment StoreEntitySet="RESERVATIONS">
+                <ScalarProperty Name="RES_PKid" ColumnName="RES_PKid" />
+                <ScalarProperty Name="RES_RESERVATION_DATE" ColumnName="RES_RESERVATION_DATE" />
+                <ScalarProperty Name="RES_DATE_TERM" ColumnName="RES_DATE_TERM" />
+                <ScalarProperty Name="POS_PKid" ColumnName="POS_PKid" />
+                <ScalarProperty Name="CLI_PKid" ColumnName="CLI_PKid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICE">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.SERVICE">
+              <MappingFragment StoreEntitySet="SERVICE">
+                <ScalarProperty Name="SER_PKid" ColumnName="SER_PKid" />
+                <ScalarProperty Name="SER_NAME" ColumnName="SER_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICES_POSITION">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.SERVICES_POSITION">
+              <MappingFragment StoreEntitySet="SERVICES_POSITION">
+                <ScalarProperty Name="SPO_PKid" ColumnName="SPO_PKid" />
+                <ScalarProperty Name="POS_PKid" ColumnName="POS_PKid" />
+                <ScalarProperty Name="SER_PKid" ColumnName="SER_PKid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANSACTIONS">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.TRANSACTIONS">
+              <MappingFragment StoreEntitySet="TRANSACTIONS">
+                <ScalarProperty Name="TRA_PKid" ColumnName="TRA_PKid" />
+                <ScalarProperty Name="TRA_NAME" ColumnName="TRA_NAME" />
+                <ScalarProperty Name="TRA_DATE" ColumnName="TRA_DATE" />
+                <ScalarProperty Name="TRA_INVOICED" ColumnName="TRA_INVOICED" />
+                <ScalarProperty Name="TRA_AMOUNT" ColumnName="TRA_AMOUNT" />
+                <ScalarProperty Name="TRA_ALL" ColumnName="TRA_ALL" />
+                <ScalarProperty Name="PRL_PKid" ColumnName="PRL_PKid" />
+                <ScalarProperty Name="CLI_PKid" ColumnName="CLI_PKid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
