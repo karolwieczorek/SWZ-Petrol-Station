@@ -36,7 +36,7 @@
                             <li>@Html.ActionLink("Car wash", "Index", "Home")</li>
                             <li>@Html.ActionLink("Fuel supply", "Index", "Home")</li>
                             <li>@Html.ActionLink("Monitoring", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Loyalty", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Loyalty", "Index", "PRIZES")</li>
                         }
                         if ((AccountType)Session["LogedUserType"] == AccountType.Employee) {
                             <li>@Html.ActionLink("Pricing", "Index", "PRICELISTs")</li>
@@ -44,16 +44,16 @@
                             <li>@Html.ActionLink("Invoices", "Index", "Home")</li>
                             <li>@Html.ActionLink("Car wash", "Index", "Home")</li>
                             <li>@Html.ActionLink("Monitoring", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Loyalty", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Loyalty", "Index", "PRIZES")</li>
                         }
                         if ((AccountType)Session["LogedUserType"] == AccountType.Client) {
                             <li>@Html.ActionLink("Pricing", "Index", "PRICELISTs")</li>
                             <li>@Html.ActionLink("Car wash", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Loyalty", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Loyalty", "Index", "PRIZES")</li>
                         }
                     } else {
                         <li>@Html.ActionLink("Pricing", "Index", "PRICELISTs")</li>
-                        <li>@Html.ActionLink("Loyalty", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Loyalty", "Index", "PRIZES")</li>
                     }
                     
                 </ul>
