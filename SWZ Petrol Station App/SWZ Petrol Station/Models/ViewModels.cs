@@ -10,4 +10,10 @@ namespace SWZ_Petrol_Station.Models
         public int price;
         public string type;
     }
+
+    public enum AccountType { 
+        Client = 0,
+        Employee = 1,
+        Admin = 2
+    }
 }

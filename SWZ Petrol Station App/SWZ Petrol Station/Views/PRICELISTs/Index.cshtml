@@ -1,4 +1,5 @@
-﻿@model IEnumerable<SWZ_Petrol_Station.PRICELIST>
+﻿@using SWZ_Petrol_Station.Models;
+@model IEnumerable<SWZ_Petrol_Station.PRICELIST>
 
 @{
     ViewBag.Title = "Index";
@@ -6,10 +7,14 @@
 }
 
 <h2>Prices of services and goods</h2>
+@if (Session["LogedUserType"] != null) {
+    if ((AccountType)Session["LogedUserType"] == AccountType.Admin) {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+}
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -42,9 +47,15 @@
             @Html.DisplayFor(modelItem => item.SERVICE.SER_NAME)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PRL_PKid }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PRL_PKid }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PRL_PKid })
+            @if (Session["LogedUserType"] != null) {
+                if ((AccountType)Session["LogedUserType"] == AccountType.Admin ||
+                    (AccountType)Session["LogedUserType"] == AccountType.Employee) {
+                    @Html.ActionLink("Edit |", "Edit", new { id = item.PRL_PKid });
+                    @Html.ActionLink(" Details |", "Details", new { id = item.PRL_PKid });
+                    @Html.ActionLink(" Delete ", "Delete", new { id = item.PRL_PKid });
+                }
+            }
+            
         </td>
     </tr>
 }

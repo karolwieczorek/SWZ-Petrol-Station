@@ -7,18 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SWZ_Petrol_Station;
+using SWZ_Petrol_Station.Models;
 
 namespace SWZ_Petrol_Station.Controllers
 {
     public class CLIENTSController : Controller
     {
         private DB_9D7C73_karolwieczorek9Entities1 db = new DB_9D7C73_karolwieczorek9Entities1();
-        
-        public enum AccountType { // TODO: Move it to right place
-            Client = 0,
-            Employee = 1,
-            Admin = 2
-        }
 
         #region user
         public ActionResult Login() {
@@ -31,15 +26,13 @@ namespace SWZ_Petrol_Station.Controllers
             // this action is for handle post (login)
             if (ModelState.IsValid) // this is check validity
             {
-
                 var v = db.CLIENTS.Where(a => a.CLI_LOGIN.Equals(u.CLI_LOGIN) && a.CLI_PASSWORD.Equals(u.CLI_PASSWORD)).FirstOrDefault();
                 if (v != null) {
                     Session["LogedUserID"] = v.CLI_PKid.ToString();
                     Session["LogedUserFullname"] = v.CLI_LOGIN.ToString();
-                    Session["LogedUserType"] = v.CLI_ACCTYPE.ToString();
+                    Session["LogedUserType"] = (AccountType)v.CLI_ACCTYPE;
                     return RedirectToAction("Index", "Home");
                 }
-
             }
             return View(u);
         }
@@ -55,12 +48,27 @@ namespace SWZ_Petrol_Station.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult AfterLogin() {
-            if (Session["LogedUserID"] != null) {
-                return View(); 
-            } else {
-                return RedirectToAction("Home");
+        // GET: CLIENTS/Register
+        public ActionResult Register() {
+            ViewBag.COM_PKid = new SelectList(db.COMPANY, "COM_PKid", "COM_NAME");
+            ViewBag.PRS_PKid = new SelectList(db.PERSON, "PRS_PKid", "PRS_NAME");
+            return View();
+        }
+
+        // POST: CLIENTS/Register
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register([Bind(Include = "CLI_PKid,CLI_LOGIN,CLI_PASSWORD")] CLIENTS cLIENTS) {
+            cLIENTS.CLI_ACCTYPE = (int)AccountType.Client;
+            if (ModelState.IsValid) {
+                db.CLIENTS.Add(cLIENTS);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
+
+            ViewBag.COM_PKid = new SelectList(db.COMPANY, "COM_PKid", "COM_NAME", cLIENTS.COM_PKid);
+            ViewBag.PRS_PKid = new SelectList(db.PERSON, "PRS_PKid", "PRS_NAME", cLIENTS.PRS_PKid);
+            return View(cLIENTS);
         }
         #endregion
         #region basic

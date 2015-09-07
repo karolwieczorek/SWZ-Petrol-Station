@@ -323,6 +323,7 @@
     <Content Include="Views\CLIENTS\Edit.cshtml" />
     <Content Include="Views\CLIENTS\Index.cshtml" />
     <Content Include="Views\CLIENTS\Login.cshtml" />
+    <Content Include="Views\CLIENTS\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
