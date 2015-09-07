@@ -13,7 +13,7 @@
           <Property Name="CLI_LOGIN" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="CLI_PASSWORD" Type="varchar" MaxLength="45" />
           <Property Name="CLI_ACCTYPE" Type="int" Nullable="false" />
-          <Property Name="CLI_PAOUMT" Type="int" />
+          <Property Name="CLI_POINTS" Type="int" />
           <Property Name="CLI_LASTCHANGE" Type="datetime" />
           <Property Name="COM_PKid" Type="int" />
           <Property Name="PRS_PKid" Type="int" />
@@ -449,7 +449,6 @@ warning 6002: The table/view 'DB_9D7C73_karolwieczorek9.dbo.MONITORING_VIDEO' do
           <Property Name="CLI_LOGIN" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CLI_PASSWORD" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="CLI_ACCTYPE" Type="Int32" Nullable="false" />
-          <Property Name="CLI_PAOUMT" Type="Int32" />
           <Property Name="CLI_LASTCHANGE" Type="DateTime" Precision="3" />
           <Property Name="COM_PKid" Type="Int32" />
           <Property Name="PRS_PKid" Type="Int32" />
@@ -457,6 +456,7 @@ warning 6002: The table/view 'DB_9D7C73_karolwieczorek9.dbo.MONITORING_VIDEO' do
           <NavigationProperty Name="COMPANY" Relationship="Self.FK_COMPANYCLIENTS" FromRole="CLIENTS" ToRole="COMPANY" />
           <NavigationProperty Name="PERSON" Relationship="Self.FK_PERSONCLIENTS" FromRole="CLIENTS" ToRole="PERSON" />
           <NavigationProperty Name="RESERVATIONS" Relationship="Self.FK_RESERVATIONSCLIENTS" FromRole="CLIENTS" ToRole="RESERVATIONS" />
+          <Property Name="CLI_POINTS" Type="Int32" />
         </EntityType>
         <EntityType Name="COMPANY">
           <Key>
@@ -903,11 +903,11 @@ warning 6002: The table/view 'DB_9D7C73_karolwieczorek9.dbo.MONITORING_VIDEO' do
           <EntitySetMapping Name="CLIENTS">
             <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.CLIENTS">
               <MappingFragment StoreEntitySet="CLIENTS">
+                <ScalarProperty Name="CLI_POINTS" ColumnName="CLI_POINTS" />
                 <ScalarProperty Name="CLI_PKid" ColumnName="CLI_PKid" />
                 <ScalarProperty Name="CLI_LOGIN" ColumnName="CLI_LOGIN" />
                 <ScalarProperty Name="CLI_PASSWORD" ColumnName="CLI_PASSWORD" />
                 <ScalarProperty Name="CLI_ACCTYPE" ColumnName="CLI_ACCTYPE" />
-                <ScalarProperty Name="CLI_PAOUMT" ColumnName="CLI_PAOUMT" />
                 <ScalarProperty Name="CLI_LASTCHANGE" ColumnName="CLI_LASTCHANGE" />
                 <ScalarProperty Name="COM_PKid" ColumnName="COM_PKid" />
                 <ScalarProperty Name="PRS_PKid" ColumnName="PRS_PKid" />

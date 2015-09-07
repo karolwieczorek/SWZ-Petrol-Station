@@ -24,10 +24,10 @@ namespace SWZ_Petrol_Station
         public string CLI_LOGIN { get; set; }
         public string CLI_PASSWORD { get; set; }
         public int CLI_ACCTYPE { get; set; }
-        public Nullable<int> CLI_PAOUMT { get; set; }
         public Nullable<System.DateTime> CLI_LASTCHANGE { get; set; }
         public Nullable<int> COM_PKid { get; set; }
         public Nullable<int> PRS_PKid { get; set; }
+        public Nullable<int> CLI_POINTS { get; set; }
     
         public virtual ICollection<TRANSACTIONS> TRANSACTIONS { get; set; }
         public virtual COMPANY COMPANY { get; set; }

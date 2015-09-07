@@ -108,7 +108,7 @@ namespace SWZ_Petrol_Station.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CLI_PKid,CLI_LOGIN,CLI_PASSWORD,CLI_ACCTYPE,CLI_PAOUMT,CLI_LASTCHANGE,COM_PKid,PRS_PKid")] CLIENTS cLIENTS)
+        public ActionResult Create([Bind(Include = "CLI_PKid,CLI_LOGIN,CLI_PASSWORD,CLI_ACCTYPE,CLI_POINTS,CLI_LASTCHANGE,COM_PKid,PRS_PKid")] CLIENTS cLIENTS)
         {
             if (ModelState.IsValid)
             {
@@ -144,7 +144,7 @@ namespace SWZ_Petrol_Station.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CLI_PKid,CLI_LOGIN,CLI_PASSWORD,CLI_ACCTYPE,CLI_PAOUMT,CLI_LASTCHANGE,COM_PKid,PRS_PKid")] CLIENTS cLIENTS)
+        public ActionResult Edit([Bind(Include = "CLI_PKid,CLI_LOGIN,CLI_PASSWORD,CLI_ACCTYPE,CLI_POINTS,CLI_LASTCHANGE,COM_PKid,PRS_PKid")] CLIENTS cLIENTS)
         {
             if (ModelState.IsValid)
             {
