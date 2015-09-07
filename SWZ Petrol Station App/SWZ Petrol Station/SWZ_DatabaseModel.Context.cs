@@ -28,7 +28,6 @@ namespace SWZ_Petrol_Station
         public virtual DbSet<CLIENTS> CLIENTS { get; set; }
         public virtual DbSet<COMPANY> COMPANY { get; set; }
         public virtual DbSet<EMPLOYEES> EMPLOYEES { get; set; }
-        public virtual DbSet<MONITORING_VIDEO> MONITORING_VIDEO { get; set; }
         public virtual DbSet<PERFORMANCE_MONITORING> PERFORMANCE_MONITORING { get; set; }
         public virtual DbSet<PERSON> PERSON { get; set; }
         public virtual DbSet<PLACES> PLACES { get; set; }
@@ -40,5 +39,7 @@ namespace SWZ_Petrol_Station
         public virtual DbSet<SERVICE> SERVICE { get; set; }
         public virtual DbSet<SERVICES_POSITION> SERVICES_POSITION { get; set; }
         public virtual DbSet<TRANSACTIONS> TRANSACTIONS { get; set; }
+        public virtual DbSet<FUEL_TANK> FUEL_TANK { get; set; }
+        public virtual DbSet<MONITORING_VIDEO> MONITORING_VIDEO { get; set; }
     }
 }

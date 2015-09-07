@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using SWZ_Petrol_Station.Models;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -26,11 +28,34 @@
         <div class="container" style="max-width: 100%; background-color: #25353E">
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Pricing", "Index", "PRICELISTs")</li>
-                    <li>@Html.ActionLink("Customers", "Customers", "Customers")</li>
-                    <li>@Html.ActionLink("Invoices", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Car wash", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Loyalty", "Index", "Home")</li>
+                    @if (Session["LogedUserType"] != null) {
+                        if ((AccountType)Session["LogedUserType"] == AccountType.Admin) {
+                            <li>@Html.ActionLink("Pricing", "Index", "PRICELISTs")</li>
+                            <li>@Html.ActionLink("Customers", "Customers", "Customers")</li>
+                            <li>@Html.ActionLink("Invoices", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Car wash", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Fuel supply", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Monitoring", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Loyalty", "Index", "Home")</li>
+                        }
+                        if ((AccountType)Session["LogedUserType"] == AccountType.Employee) {
+                            <li>@Html.ActionLink("Pricing", "Index", "PRICELISTs")</li>
+                            <li>@Html.ActionLink("Customers", "Customers", "Customers")</li>
+                            <li>@Html.ActionLink("Invoices", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Car wash", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Monitoring", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Loyalty", "Index", "Home")</li>
+                        }
+                        if ((AccountType)Session["LogedUserType"] == AccountType.Client) {
+                            <li>@Html.ActionLink("Pricing", "Index", "PRICELISTs")</li>
+                            <li>@Html.ActionLink("Car wash", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Loyalty", "Index", "Home")</li>
+                        }
+                    } else {
+                        <li>@Html.ActionLink("Pricing", "Index", "PRICELISTs")</li>
+                        <li>@Html.ActionLink("Loyalty", "Index", "Home")</li>
+                    }
+                    
                 </ul>
             </div>
         </div>

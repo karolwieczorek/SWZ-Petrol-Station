@@ -173,7 +173,11 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PRICELISTsController.cs" />
     <Compile Include="Controllers\PricingController.cs" />
+    <Compile Include="Controllers\PRIZESController.cs" />
     <Compile Include="EMPLOYEES.cs">
+      <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FUEL_TANK.cs">
       <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -324,6 +328,11 @@
     <Content Include="Views\CLIENTS\Index.cshtml" />
     <Content Include="Views\CLIENTS\Login.cshtml" />
     <Content Include="Views\CLIENTS\Register.cshtml" />
+    <Content Include="Views\PRIZES\Create.cshtml" />
+    <Content Include="Views\PRIZES\Delete.cshtml" />
+    <Content Include="Views\PRIZES\Details.cshtml" />
+    <Content Include="Views\PRIZES\Edit.cshtml" />
+    <Content Include="Views\PRIZES\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

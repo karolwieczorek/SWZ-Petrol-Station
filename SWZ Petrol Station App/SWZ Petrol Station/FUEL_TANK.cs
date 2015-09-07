@@ -12,11 +12,13 @@ namespace SWZ_Petrol_Station
     using System;
     using System.Collections.Generic;
     
-    public partial class MONITORING_VIDEO
+    public partial class FUEL_TANK
     {
-        public int MON_PKId { get; set; }
-        public Nullable<System.DateTime> MON_Date { get; set; }
-        public string MON_Name { get; set; }
-        public bool MON_WOW { get; set; }
+        public int FUE_PKid { get; set; }
+        public int FUE_NUMBER { get; set; }
+        public System.DateTime FUE_DATE { get; set; }
+        public double FUE__PRESSURE { get; set; }
+        public double FUE_TEMPERATURE { get; set; }
+        public Nullable<double> FUE_AMOUNT { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_9D7C73_karolwieczorek9Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_9D7C73_karolwieczorek9Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CLIENTS">
           <Key>
             <PropertyRef Name="CLI_PKid" />
@@ -39,15 +39,28 @@
           <Property Name="EMP_PASSWORD" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="PRS_PKid" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="FUEL_TANK">
+          <Key>
+            <PropertyRef Name="FUE_PKid" />
+          </Key>
+          <Property Name="FUE_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FUE_NUMBER" Type="int" Nullable="false" />
+          <Property Name="FUE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="FUE_ PRESSURE" Type="float" Nullable="false" />
+          <Property Name="FUE_TEMPERATURE" Type="float" Nullable="false" />
+          <Property Name="FUE_AMOUNT" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_9D7C73_karolwieczorek9.dbo.MONITORING_VIDEO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="MONITORING_VIDEO">
           <Key>
-            <PropertyRef Name="MOV_PKid" />
+            <PropertyRef Name="MON_PKId" />
+            <PropertyRef Name="MON_WOW" />
           </Key>
-          <Property Name="MOV_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MOV_PATH" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="MOV_DATE" Type="datetime" Nullable="false" />
-          <Property Name="MOV_CAMERANO" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="MOV_FILESIZE" Type="float" Nullable="false" />
+          <Property Name="MON_PKId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MON_Date" Type="date" />
+          <Property Name="MON_Name" Type="varchar" MaxLength="50" />
+          <Property Name="MON_WOW" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="PERFORMANCE_MONITORING">
           <Key>
@@ -343,7 +356,7 @@
           <EntitySet Name="CLIENTS" EntityType="Self.CLIENTS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="COMPANY" EntityType="Self.COMPANY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MONITORING_VIDEO" EntityType="Self.MONITORING_VIDEO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FUEL_TANK" EntityType="Self.FUEL_TANK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PERFORMANCE_MONITORING" EntityType="Self.PERFORMANCE_MONITORING" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PERSON" EntityType="Self.PERSON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PLACES" EntityType="Self.PLACES" Schema="dbo" store:Type="Tables" />
@@ -355,6 +368,14 @@
           <EntitySet Name="SERVICE" EntityType="Self.SERVICE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SERVICES_POSITION" EntityType="Self.SERVICES_POSITION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TRANSACTIONS" EntityType="Self.TRANSACTIONS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MONITORING_VIDEO" EntityType="Self.MONITORING_VIDEO" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MONITORING_VIDEO].[MON_PKId] AS [MON_PKId], 
+    [MONITORING_VIDEO].[MON_Date] AS [MON_Date], 
+    [MONITORING_VIDEO].[MON_Name] AS [MON_Name], 
+    [MONITORING_VIDEO].[MON_WOW] AS [MON_WOW]
+    FROM [dbo].[MONITORING_VIDEO] AS [MONITORING_VIDEO]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_CLIENTSTRANSACTIONS" Association="Self.FK_CLIENTSTRANSACTIONS">
             <End Role="CLIENTS" EntitySet="CLIENTS" />
             <End Role="TRANSACTIONS" EntitySet="TRANSACTIONS" />
@@ -416,8 +437,7 @@
             <End Role="SERVICES_POSITION" EntitySet="SERVICES_POSITION" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_9D7C73_karolwieczorek9Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -461,16 +481,6 @@
           <Property Name="EMP_PASSWORD" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRS_PKid" Type="Int32" Nullable="false" />
           <NavigationProperty Name="PERSON" Relationship="Self.FK_EMPLOYEESPERSON" FromRole="EMPLOYEES" ToRole="PERSON" />
-        </EntityType>
-        <EntityType Name="MONITORING_VIDEO">
-          <Key>
-            <PropertyRef Name="MOV_PKid" />
-          </Key>
-          <Property Name="MOV_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MOV_PATH" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MOV_DATE" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="MOV_CAMERANO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MOV_FILESIZE" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="PERFORMANCE_MONITORING">
           <Key>
@@ -789,7 +799,6 @@
           <EntitySet Name="CLIENTS" EntityType="Self.CLIENTS" />
           <EntitySet Name="COMPANY" EntityType="Self.COMPANY" />
           <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" />
-          <EntitySet Name="MONITORING_VIDEO" EntityType="Self.MONITORING_VIDEO" />
           <EntitySet Name="PERFORMANCE_MONITORING" EntityType="Self.PERFORMANCE_MONITORING" />
           <EntitySet Name="PERSON" EntityType="Self.PERSON" />
           <EntitySet Name="PLACES" EntityType="Self.PLACES" />
@@ -861,7 +870,30 @@
             <End Role="SERVICE" EntitySet="SERVICE" />
             <End Role="SERVICES_POSITION" EntitySet="SERVICES_POSITION" />
           </AssociationSet>
+          <EntitySet Name="FUEL_TANK" EntityType="DB_9D7C73_karolwieczorek9Model.FUEL_TANK" />
+          <EntitySet Name="MONITORING_VIDEO" EntityType="DB_9D7C73_karolwieczorek9Model.MONITORING_VIDEO" />
         </EntityContainer>
+        <EntityType Name="FUEL_TANK">
+          <Key>
+            <PropertyRef Name="FUE_PKid" />
+          </Key>
+          <Property Name="FUE_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FUE_NUMBER" Type="Int32" Nullable="false" />
+          <Property Name="FUE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FUE__PRESSURE" Type="Double" Nullable="false" />
+          <Property Name="FUE_TEMPERATURE" Type="Double" Nullable="false" />
+          <Property Name="FUE_AMOUNT" Type="Double" />
+        </EntityType>
+        <EntityType Name="MONITORING_VIDEO">
+          <Key>
+            <PropertyRef Name="MON_PKId" />
+            <PropertyRef Name="MON_WOW" />
+          </Key>
+          <Property Name="MON_PKId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MON_Date" Type="DateTime" Precision="0" />
+          <Property Name="MON_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MON_WOW" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -902,17 +934,6 @@
                 <ScalarProperty Name="EMP_IDNO" ColumnName="EMP_IDNO" />
                 <ScalarProperty Name="EMP_PASSWORD" ColumnName="EMP_PASSWORD" />
                 <ScalarProperty Name="PRS_PKid" ColumnName="PRS_PKid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MONITORING_VIDEO">
-            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.MONITORING_VIDEO">
-              <MappingFragment StoreEntitySet="MONITORING_VIDEO">
-                <ScalarProperty Name="MOV_PKid" ColumnName="MOV_PKid" />
-                <ScalarProperty Name="MOV_PATH" ColumnName="MOV_PATH" />
-                <ScalarProperty Name="MOV_DATE" ColumnName="MOV_DATE" />
-                <ScalarProperty Name="MOV_CAMERANO" ColumnName="MOV_CAMERANO" />
-                <ScalarProperty Name="MOV_FILESIZE" ColumnName="MOV_FILESIZE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1034,6 +1055,28 @@
                 <ScalarProperty Name="TRA_ALL" ColumnName="TRA_ALL" />
                 <ScalarProperty Name="PRL_PKid" ColumnName="PRL_PKid" />
                 <ScalarProperty Name="CLI_PKid" ColumnName="CLI_PKid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FUEL_TANK">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.FUEL_TANK">
+              <MappingFragment StoreEntitySet="FUEL_TANK">
+                <ScalarProperty Name="FUE_AMOUNT" ColumnName="FUE_AMOUNT" />
+                <ScalarProperty Name="FUE_TEMPERATURE" ColumnName="FUE_TEMPERATURE" />
+                <ScalarProperty Name="FUE__PRESSURE" ColumnName="FUE_ PRESSURE" />
+                <ScalarProperty Name="FUE_DATE" ColumnName="FUE_DATE" />
+                <ScalarProperty Name="FUE_NUMBER" ColumnName="FUE_NUMBER" />
+                <ScalarProperty Name="FUE_PKid" ColumnName="FUE_PKid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MONITORING_VIDEO">
+            <EntityTypeMapping TypeName="DB_9D7C73_karolwieczorek9Model.MONITORING_VIDEO">
+              <MappingFragment StoreEntitySet="MONITORING_VIDEO">
+                <ScalarProperty Name="MON_WOW" ColumnName="MON_WOW" />
+                <ScalarProperty Name="MON_Name" ColumnName="MON_Name" />
+                <ScalarProperty Name="MON_Date" ColumnName="MON_Date" />
+                <ScalarProperty Name="MON_PKId" ColumnName="MON_PKId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
