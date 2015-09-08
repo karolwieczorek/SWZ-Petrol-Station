@@ -53,6 +53,10 @@
                     @Html.ActionLink("Edit |", "Edit", new { id = item.PRL_PKid });
                     @Html.ActionLink(" Details |", "Details", new { id = item.PRL_PKid });
                     @Html.ActionLink(" Delete ", "Delete", new { id = item.PRL_PKid });
+                } else if ((AccountType)Session["LogedUserType"] == AccountType.Client) {
+                    if (item.SER_PKid == 1) {
+                        @Html.ActionLink("Buy", "Buy", "TRANSACTIONS", new { id = item.PRL_PKid }, new { @class = "link-class", attr = "attribute value" });
+                    }
                 }
             }
             

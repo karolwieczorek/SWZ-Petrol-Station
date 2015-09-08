@@ -45,7 +45,7 @@
           </Key>
           <Property Name="FUE_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FUE_NUMBER" Type="int" Nullable="false" />
-          <Property Name="FUE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="FUE_DATE" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="FUE_ PRESSURE" Type="float" Nullable="false" />
           <Property Name="FUE_TEMPERATURE" Type="float" Nullable="false" />
           <Property Name="FUE_AMOUNT" Type="float" />
@@ -69,7 +69,7 @@ warning 6002: The table/view 'DB_9D7C73_karolwieczorek9.dbo.MONITORING_VIDEO' do
           <Property Name="PER_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PER_NAME" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="PER_VALUE" Type="float" Nullable="false" />
-          <Property Name="PER_DATE" Type="datetime" Nullable="false" />
+          <Property Name="PER_DATE" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="PER_SENSORNO" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="POS_PKid" Type="int" Nullable="false" />
         </EntityType>
@@ -139,8 +139,8 @@ warning 6002: The table/view 'DB_9D7C73_karolwieczorek9.dbo.MONITORING_VIDEO' do
             <PropertyRef Name="RES_PKid" />
           </Key>
           <Property Name="RES_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RES_RESERVATION_DATE" Type="datetime" Nullable="false" />
-          <Property Name="RES_DATE_TERM" Type="datetime" Nullable="false" />
+          <Property Name="RES_RESERVATION_DATE" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="RES_DATE_TERM" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="POS_PKid" Type="int" Nullable="false" />
           <Property Name="CLI_PKid" Type="int" Nullable="false" />
         </EntityType>
@@ -165,7 +165,7 @@ warning 6002: The table/view 'DB_9D7C73_karolwieczorek9.dbo.MONITORING_VIDEO' do
           </Key>
           <Property Name="TRA_PKid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TRA_NAME" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="TRA_DATE" Type="datetime" Nullable="false" />
+          <Property Name="TRA_DATE" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="TRA_INVOICED" Type="bit" Nullable="false" />
           <Property Name="TRA_AMOUNT" Type="int" />
           <Property Name="TRA_ALL" Type="nvarchar(max)" Nullable="false" />
@@ -489,7 +489,7 @@ warning 6002: The table/view 'DB_9D7C73_karolwieczorek9.dbo.MONITORING_VIDEO' do
           <Property Name="PER_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PER_NAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PER_VALUE" Type="Double" Nullable="false" />
-          <Property Name="PER_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PER_DATE" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="PER_SENSORNO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="POS_PKid" Type="Int32" Nullable="false" />
           <NavigationProperty Name="POSITION_SERVICE" Relationship="Self.FK_POSITION_SERVICEPERFORMANCE_MONITORING" FromRole="PERFORMANCE_MONITORING" ToRole="POSITION_SERVICE" />
@@ -573,8 +573,8 @@ warning 6002: The table/view 'DB_9D7C73_karolwieczorek9.dbo.MONITORING_VIDEO' do
             <PropertyRef Name="RES_PKid" />
           </Key>
           <Property Name="RES_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RES_RESERVATION_DATE" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="RES_DATE_TERM" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RES_RESERVATION_DATE" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="RES_DATE_TERM" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="POS_PKid" Type="Int32" Nullable="false" />
           <Property Name="CLI_PKid" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CLIENTS" Relationship="Self.FK_RESERVATIONSCLIENTS" FromRole="RESERVATIONS" ToRole="CLIENTS" />
@@ -605,7 +605,7 @@ warning 6002: The table/view 'DB_9D7C73_karolwieczorek9.dbo.MONITORING_VIDEO' do
           </Key>
           <Property Name="TRA_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TRA_NAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TRA_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TRA_DATE" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="TRA_INVOICED" Type="Boolean" Nullable="false" />
           <Property Name="TRA_AMOUNT" Type="Int32" />
           <Property Name="TRA_ALL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
@@ -879,7 +879,7 @@ warning 6002: The table/view 'DB_9D7C73_karolwieczorek9.dbo.MONITORING_VIDEO' do
           </Key>
           <Property Name="FUE_PKid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FUE_NUMBER" Type="Int32" Nullable="false" />
-          <Property Name="FUE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FUE_DATE" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="FUE__PRESSURE" Type="Double" Nullable="false" />
           <Property Name="FUE_TEMPERATURE" Type="Double" Nullable="false" />
           <Property Name="FUE_AMOUNT" Type="Double" />

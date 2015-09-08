@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SWZ_Petrol_Station.TRANSACTIONS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>History</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TRA_AMOUNT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRICELIST.PRL_UNIT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRA_DATE)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TRA_AMOUNT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PRICELIST.PRL_UNIT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TRA_DATE)
+            </td>
+        </tr>
+    }
+
+</table>

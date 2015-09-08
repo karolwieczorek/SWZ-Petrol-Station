@@ -28,7 +28,7 @@ namespace SWZ_Petrol_Station.Controllers
             {
                 var v = db.CLIENTS.Where(a => a.CLI_LOGIN.Equals(u.CLI_LOGIN) && a.CLI_PASSWORD.Equals(u.CLI_PASSWORD)).FirstOrDefault();
                 if (v != null) {
-                    Session["LogedUserID"] = v.CLI_PKid.ToString();
+                    Session["LogedUserID"] = v.CLI_PKid;
                     Session["LogedUserFullname"] = v.CLI_LOGIN.ToString();
                     Session["LogedUserType"] = (AccountType)v.CLI_ACCTYPE;
                     return RedirectToAction("Index", "Home");

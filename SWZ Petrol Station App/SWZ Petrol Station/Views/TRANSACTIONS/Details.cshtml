@@ -1,0 +1,75 @@
+﻿@model SWZ_Petrol_Station.TRANSACTIONS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TRANSACTIONS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TRA_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRA_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRA_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRA_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRA_INVOICED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRA_INVOICED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRA_AMOUNT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRA_AMOUNT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRA_ALL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRA_ALL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLIENTS.CLI_LOGIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLIENTS.CLI_LOGIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRICELIST.PRL_UNIT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRICELIST.PRL_UNIT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TRA_PKid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SWZ_Petrol_Station.TRANSACTIONS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TRA_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRA_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRA_INVOICED)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRA_AMOUNT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRA_ALL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLIENTS.CLI_LOGIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRICELIST.PRL_UNIT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRA_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRA_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRA_INVOICED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRA_AMOUNT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRA_ALL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLIENTS.CLI_LOGIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRICELIST.PRL_UNIT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TRA_PKid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TRA_PKid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TRA_PKid })
+        </td>
+    </tr>
+}
+
+</table>
