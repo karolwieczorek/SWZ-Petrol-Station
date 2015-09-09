@@ -30,12 +30,18 @@ namespace SWZ_Petrol_Station.Controllers
             tRANSACTIONS.TRA_DATE = System.DateTime.Now;
             tRANSACTIONS.TRA_NAME = "Name";
             tRANSACTIONS.TRA_ALL = "ALL";
+            int prizeId = (int)Session["PricelistID"];
             tRANSACTIONS.CLI_PKid = (int)Session["LogedUserID"];
-            tRANSACTIONS.PRL_PKid = (int)Session["PricelistID"]; Session["PricelistID"] = null;
-            int id = db.TRANSACTIONS.Max(t => tRANSACTIONS.TRA_PKid);
+            tRANSACTIONS.PRL_PKid = prizeId; Session["PricelistID"] = null;
+            //int id = db.TRANSACTIONS.Max(t => tRANSACTIONS.TRA_PKid);
+            int id = (int)Session["LogedUserID"];
+            CLIENTS client = db.CLIENTS.Where(a => a.CLI_PKid.Equals(id)).FirstOrDefault();
+            int poinstMultiplayer = db.PRICELIST.Where(p => p.PRL_PKid.Equals(prizeId)).FirstOrDefault().PRL_LOYALTY_POINTS_AMOUNT;
+            client.CLI_POINTS += tRANSACTIONS.TRA_AMOUNT * poinstMultiplayer;
             
             if (ModelState.IsValid) {
                 db.TRANSACTIONS.Add(tRANSACTIONS);
+                db.Entry(client).State = EntityState.Modified;
                 try {
                     db.SaveChanges();
                 } catch (Exception exception) {

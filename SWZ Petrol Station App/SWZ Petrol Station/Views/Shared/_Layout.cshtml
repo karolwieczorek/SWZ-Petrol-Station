@@ -49,6 +49,7 @@
                         if ((AccountType)Session["LogedUserType"] == AccountType.Client) {
                             <li>@Html.ActionLink("Pricing", "Index", "PRICELISTs")</li>
                             <li>@Html.ActionLink("Car wash", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Transaction history", "History", "TRANSACTIONS", new { id = Session["LogedUserID"] }, new { @class = "link-class", attr = "attribute value" })</li>
                             <li>@Html.ActionLink("Loyalty", "Index", "PRIZES")</li>
                         }
                     } else {
@@ -71,7 +72,6 @@
                     <td style="width: 30%; text-align: right;">@Html.ActionLink("Contact", "Contact", "Home")</td>
                 </tr>
             </table>
-            
         </footer>
     </div>
 
