@@ -70,6 +70,39 @@ namespace SWZ_Petrol_Station.Controllers
             ViewBag.PRS_PKid = new SelectList(db.PERSON, "PRS_PKid", "PRS_NAME", cLIENTS.PRS_PKid);
             return View(cLIENTS);
         }
+
+        // GET: CLIENTS/Edit/5
+        public ActionResult ChangePassword(int? id) {
+            if (id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CLIENTS cLIENTS = db.CLIENTS.Find(id);
+            if (cLIENTS == null) {
+                return HttpNotFound();
+            }
+            ViewBag.COM_PKid = new SelectList(db.COMPANY, "COM_PKid", "COM_NAME", cLIENTS.COM_PKid);
+            ViewBag.PRS_PKid = new SelectList(db.PERSON, "PRS_PKid", "PRS_NAME", cLIENTS.PRS_PKid);
+            return View(cLIENTS);
+        }
+
+        // POST: CLIENTS/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword([Bind(Include = "CLI_PASSWORD")] CLIENTS cLIENTS, int id) {
+            CLIENTS cli = db.CLIENTS.Where(a => a.CLI_PKid.Equals(id)).FirstOrDefault();
+            cli.CLI_PASSWORD = cLIENTS.CLI_PASSWORD;
+
+            if (ModelState.IsValid) {
+                db.Entry(cli).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+            ViewBag.COM_PKid = new SelectList(db.COMPANY, "COM_PKid", "COM_NAME", cLIENTS.COM_PKid);
+            ViewBag.PRS_PKid = new SelectList(db.PERSON, "PRS_PKid", "PRS_NAME", cLIENTS.PRS_PKid);
+            return View(cLIENTS);
+        }
         #endregion
         #region basic
 
