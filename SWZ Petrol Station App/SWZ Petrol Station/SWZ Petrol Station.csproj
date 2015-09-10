@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +40,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -169,12 +178,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CLIENTSController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\FUEL_TANKController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PRICELISTsController.cs" />
     <Compile Include="Controllers\PricingController.cs" />
     <Compile Include="Controllers\PRIZESController.cs" />
     <Compile Include="Controllers\TRANSACTIONSController.cs" />
+    <Compile Include="Controllers\RESERVATIONSController.cs" />
     <Compile Include="EMPLOYEES.cs">
       <DependentUpon>SWZ_DatabaseModel.tt</DependentUpon>
     </Compile>
@@ -342,6 +353,18 @@
     <Content Include="Views\TRANSACTIONS\Buy.cshtml" />
     <Content Include="Views\TRANSACTIONS\History.cshtml" />
     <Content Include="Views\CLIENTS\ChangePassword.cshtml" />
+    <Content Include="Views\FUEL_TANK\Create.cshtml" />
+    <Content Include="Views\FUEL_TANK\Delete.cshtml" />
+    <Content Include="Views\FUEL_TANK\Details.cshtml" />
+    <Content Include="Views\FUEL_TANK\Edit.cshtml" />
+    <Content Include="Views\FUEL_TANK\Index.cshtml" />
+    <Content Include="Views\FUEL_TANK\TankMonitoring.cshtml" />
+    <Content Include="Views\RESERVATIONS\Create.cshtml" />
+    <Content Include="Views\RESERVATIONS\Delete.cshtml" />
+    <Content Include="Views\RESERVATIONS\Details.cshtml" />
+    <Content Include="Views\RESERVATIONS\Edit.cshtml" />
+    <Content Include="Views\RESERVATIONS\Index.cshtml" />
+    <Content Include="Views\RESERVATIONS\CreateAReservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

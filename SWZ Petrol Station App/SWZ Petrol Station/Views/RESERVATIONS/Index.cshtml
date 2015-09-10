@@ -1,0 +1,75 @@
+﻿@using SWZ_Petrol_Station.Models;
+@model IEnumerable<SWZ_Petrol_Station.RESERVATIONS>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@if (Session["LogedUserType"] != null)
+{
+    if ((AccountType)Session["LogedUserType"] == AccountType.Admin)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RES_RESERVATION_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RES_DATE_TERM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLIENTS.CLI_LOGIN)
+        </th>
+        @if (Session["LogedUserType"] != null)
+        {
+            if ((AccountType)Session["LogedUserType"] == AccountType.Admin)
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.POSITION_SERVICE.POS_NAME)
+                </th>
+            }
+        }
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RES_RESERVATION_DATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RES_DATE_TERM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CLIENTS.CLI_LOGIN)
+            </td>
+            @if (Session["LogedUserType"] != null)
+            {
+                if ((AccountType)Session["LogedUserType"] == AccountType.Admin)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.POSITION_SERVICE.POS_NAME)
+                    </td>
+
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RES_PKid }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.RES_PKid }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.RES_PKid })
+                    </td>
+                }
+            }
+
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SWZ_Petrol_Station.FUEL_TANK>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FUE_NUMBER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FUE_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FUE__PRESSURE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FUE_TEMPERATURE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FUE_AMOUNT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FUE_NUMBER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FUE_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FUE__PRESSURE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FUE_TEMPERATURE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FUE_AMOUNT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FUE_PKid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FUE_PKid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FUE_PKid })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,58 @@
+﻿@model SWZ_Petrol_Station.FUEL_TANK
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FUEL_TANK</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FUE_NUMBER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FUE_NUMBER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FUE_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FUE_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FUE__PRESSURE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FUE__PRESSURE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FUE_TEMPERATURE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FUE_TEMPERATURE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FUE_AMOUNT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FUE_AMOUNT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FUE_PKid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
