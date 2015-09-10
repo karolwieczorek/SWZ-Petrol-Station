@@ -40,6 +40,16 @@
                     @Html.ActionLink("Details", "Details", new { id=item.PRI_PKid }) |
                     @Html.ActionLink("Delete", "Delete", new { id=item.PRI_PKid })
                 </td>
+            } else if ((AccountType)Session["LogedUserType"] == AccountType.Client) {
+                @*
+                <td>
+                    @using (Html.BeginForm("Select", "PRIZES", FormMethod.Post, new { id = item.PRI_PKid, @class = "navbar-right" }))
+                    { 
+                        @Html.AntiForgeryToken()
+                        <a href="#" onclick="$(this).closest('form').submit()">Select</a>
+                    }
+                </td>
+                *@
             }
         }
     </tr>

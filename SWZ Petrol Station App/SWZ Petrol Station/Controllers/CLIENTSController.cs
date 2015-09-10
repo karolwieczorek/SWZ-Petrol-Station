@@ -109,8 +109,13 @@ namespace SWZ_Petrol_Station.Controllers
         // GET: CLIENTS
         public ActionResult Index()
         {
-            var cLIENTS = db.CLIENTS.Include(c => c.COMPANY).Include(c => c.PERSON);
-            return View(cLIENTS.ToList());
+            if ((AccountType)Session["LogedUserType"] == AccountType.Employee) {
+                var cLIENTS = db.CLIENTS.Include(c => c.COMPANY).Include(c => c.PERSON);
+                return View(cLIENTS.Where(c => c.CLI_ACCTYPE == 0).ToList());
+            } else {
+                var cLIENTS = db.CLIENTS.Include(c => c.COMPANY).Include(c => c.PERSON);
+                return View(cLIENTS.ToList());
+            }
         }
 
         // GET: CLIENTS/Details/5

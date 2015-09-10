@@ -14,6 +14,27 @@ namespace SWZ_Petrol_Station.Controllers
     {
         private DB_9D7C73_karolwieczorek9Entities1 db = new DB_9D7C73_karolwieczorek9Entities1();
 
+        // POST: PRIZES/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Select(int id) {
+            double? points = db.PRIZES.Where(p => p.PRI_PKid.Equals(id)).FirstOrDefault().PRI_NUMBER_OF_POINTS;
+            if (points == null) points = 0;
+
+            int cliId = (int)Session["LogedUserID"];
+            CLIENTS client = db.CLIENTS.Where(c => c.CLI_PKid.Equals(cliId)).FirstOrDefault();
+            client.CLI_POINTS -= (int)points;
+
+            if (ModelState.IsValid) {
+                db.Entry(client).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View("Index");
+        }
+
         // GET: PRIZES
         public ActionResult Index()
         {
